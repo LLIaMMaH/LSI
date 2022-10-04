@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ################################################################################
+# 04/10/2022 - 1.1 - Разделил скрипт на консольные и GUI приложения
 # 04/10/2022 - 1 - Решил всё же выложить скрипт
 ################################################################################
 # Как можно отблагодарить:
@@ -8,7 +9,7 @@
 # Разово поддержать через DonationAlerts - https://www.donationalerts.com/r/lliammah
 ################################################################################
 
-VER="1"
+VER="1.1"
 DATE="04/10/2022"
 
 Green=$'\e[1;32m'
@@ -44,10 +45,7 @@ options=("mc" "Midnight Commander" on
  "screenfetch" "Screenfetch" on
  "git" "Git" on
  "zsh" "Z shell" on
- "tmux" "tmux" off
- "keepassxc" "KeePassXC" off
- "appimagelauncher" "AppImageLauncher" off
- "obs-studio" "OBS Studio" off)
+ "tmux" "tmux" off)
 
 selections=$("${DIALOG[@]}" "${options[@]}" 2>&1 >/dev/tty)
 
@@ -69,18 +67,6 @@ do
   notice "Add PPA Git"
   sudo apt install software-properties-common -y
   sudo add-apt-repository ppa:git-core/ppa -y
- ;;
- "keepassxc")
-  notice "Add PPA KeePassXC"
-  sudo add-apt-repository ppa:phoerious/keepassxc -y
- ;;
- "appimagelauncher")
-  notice "Add PPA AppImageLauncher"
-  sudo add-apt-repository ppa:appimagelauncher-team/stable -y
- ;;
- "obs-studio")
-  notice "Add PPA OBS Studio"
-  sudo add-apt-repository ppa:obsproject/obs-studio -y
  ;;
  esac
 done
@@ -118,18 +104,6 @@ do
  "tmux")
   notice "Installing tmux"
   sudo apt install tmux -y
- ;;
- "keepassxc")
-  notice "Installing KeePassXC"
-  sudo apt install keepassxc -y
- ;;
- "appimagelauncher")
-  notice "Installing AppImageLauncher"
-  sudo apt install appimagelauncher -y
- ;;
- "obs-studio")
-  notice "Installing OBS Studio"
-  sudo apt install ffmpeg obs-studio -y
  ;;
  esac
 done
